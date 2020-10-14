@@ -19,40 +19,58 @@ public class WalletTEST {
 		this.wallet.setBrand(brand);
 	}
 	
-	//--[ Tests ]--
+	// Constructor tests
 	@Test
-	void getAllCreditTest() {
-		assertEquals(this.amount, 
-				this.wallet.getAllCredit());
+	void oneArgTest() {
+		this.wallet = new Wallet(this.amount);
+		// User getter to test working properly
+		assertEquals(this.amount, this.wallet.getCredit());
 	}
 	
 	@Test
-	void getCreditTest() {
-		Float subAmount = 5f;
-		// Starting amount is 10
-		// Assert remaining amount is 5 after removing 5
-		assertEquals(subAmount,
-				this.wallet.getCredit(subAmount));
+	void allArgTest() {
+		this.wallet = new Wallet(this.brand, this.amount);
+		// Use getters to test working properly
+		assertEquals(this.amount, this.wallet.getCredit());
+		assertEquals(this.brand, this.wallet.getBrand());
 	}
 	
+	// Credit method tests
 	@Test
 	void addCreditTest() {
 		Float addAmount = 5f;
 		this.wallet.addCredit(addAmount);
 		assertEquals(this.amount + addAmount,
-				this.wallet.getAllCredit());
+				this.wallet.getCredit());
+	}
+	
+	
+	@Test
+	void takeCreditTest() {
+		Float takeAmount = 5f;
+		// Starting amount is 10
+		// Assert remaining amount is 5 after removing 5
+		assertEquals(takeAmount,
+				this.wallet.takeCredit(takeAmount));
+	}
+	
+	//--[ Getter & Setter Tests ]--
+	@Test
+	void getCreditTest() {
+		assertEquals(this.amount, 
+				this.wallet.getCredit());
 	}
 	
 	@Test
 	void getBrandTest() {
 		assertEquals(this.brand, 
-				this.wallet.getBrand(this.brand));
+				this.wallet.getBrand());
 	}
 	
 	@Test
 	void setBrandTest() {
 		String newBrand = "FatFace";
 		this.wallet.setBrand(newBrand);
-		assertEquals(newBrand, this.wallet.getBrand(newBrand));
+		assertEquals(newBrand, this.wallet.getBrand());
 	}
 }
