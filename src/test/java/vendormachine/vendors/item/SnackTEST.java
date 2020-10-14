@@ -20,14 +20,20 @@ public class SnackTEST {
 
 	//--[ Tests ]--
 	@Test
-	void snackCostTest() {
-		assertEquals(this.cost, this.snack.cost());
+	void getPriceTest() {
+		assertEquals(this.cost, this.snack.getPrice());
 	}
 	
 	@Test
-	void snackSetValueTest() {
+	void setPriceTest() {
 		Float newCost = 6.0f;
-		this.snack.setValue(newCost);
-		assertEquals(newCost, this.snack.cost());
+		this.snack.setPrice(newCost);
+		assertEquals(newCost, this.snack.getPrice());
+	}
+	
+	@Test
+	void allArgsConstructorTest() {
+		String name = "Snickers";
+		Snack newSnack = new Snack(name, this.snack.getPrice());
 	}
 }
