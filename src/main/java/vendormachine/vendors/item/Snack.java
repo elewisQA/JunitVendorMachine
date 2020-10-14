@@ -18,12 +18,13 @@ public class Snack implements Item{
 	//===	Methods
 	//==================
 
-    public float cost(){
+    //---[ Getters & Setters ]---
+    public Float getPrice(){
         return this.price;
     }
+    
 
-    public void setValue(float cost){
+    public void setPrice(Float cost){
         this.price = cost;
     }
-
 }

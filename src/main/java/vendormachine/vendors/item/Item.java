@@ -9,7 +9,7 @@ public interface Item {
 	//===	Methods
 	//==================
 	
-    public float cost();
-    public void setValue(float cost);
+    public Float getPrice();
+    public void setPrice(Float cost);
 
 }
