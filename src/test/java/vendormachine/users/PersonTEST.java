@@ -36,13 +36,14 @@ public class PersonTEST {
 		.append("\tTest ").append(activeTest).append("\n")
 		.append(div)
 		.append("Console:")
-		.append("Starting Credit: ").append(testWallet.getAllCredit()).append("\n");
+		.append("Starting Credit: ").append(testWallet.getCredit()).append("\n");
 		
 		System.out.println(sBuilder.toString());
 		activeTest++;
 		// End of console test format
 	}
 	
+	// Constructor Test
 	@Test
 	public void test_Constructor() {
 		// Constructor 1
@@ -52,6 +53,21 @@ public class PersonTEST {
 		// Constructor 2 overload
 		allan = new Person("Allan", testWallet);
 		assertTrue(allan instanceof Person);
+	}
+	
+	// Wallet-related tests
+	@Test
+	public void getCreditTest() {
+		float result = this.person.getCredit(5.0f);
+		
+		assertEquals(5.0f, result, 0.1f);
+	}
+	
+	@Test 
+	public void addCreditTest() {
+		this.person.addCredit(5.0f);
+		
+		assertEquals(15.0f, this.person.getCredit(15.0f), 0.1f);
 	}
 	
 	// Getter & Setter tests
@@ -77,20 +93,6 @@ public class PersonTEST {
 	@Test
 	void getWalletTest() {
 		assertEquals(this.testWallet, this.person.getWallet());
-	}
-	
-	@Test
-	public void getCreditTest() {
-		float result = this.person.getCredit(5.0f);
-		
-		assertEquals(5.0f, result, 0.1f);
-	}
-	
-	@Test
-	public void test_addCredit() {
-		this.person.addCredit(5.0f);
-		
-		assertEquals(15.0f, this.person.getCredit(15.0f), 0.1f);
 	}
 	
 	@Test
