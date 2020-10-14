@@ -25,11 +25,11 @@ public class Person {
         if(myWallet != null) {
         	
         	// If what we are trying to retrieve our money within our limits
-        	if(retrieve <= myWallet.getAllCredit()) {
-				return this.myWallet.getCredit(retrieve);
+        	if(retrieve <= myWallet.getCredit()) {
+				return this.myWallet.takeCredit(retrieve);
         	}else {
         		System.out.println("WARNING: "+this.name+" does not have the required credit!");
-        		System.out.println("WARNING: Available credit: "+this.myWallet.getAllCredit());
+        		System.out.println("WARNING: Available credit: "+this.myWallet.getCredit());
         		return 0;
         	}
         	

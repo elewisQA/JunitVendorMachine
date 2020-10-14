@@ -7,12 +7,12 @@ public class Wallet {
 
     public Wallet(){}
 
-    public Wallet(float startCredit){
+    public Wallet(float startCredit) {
         this.brand = "Generic";
         this.credit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
     }
 
-    public Wallet(String brandName, float startCredit){
+    public Wallet(String brandName, float startCredit) {
         this.brand = brandName;
         this.credit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
     }
