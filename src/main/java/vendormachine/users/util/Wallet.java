@@ -3,18 +3,18 @@ package vendormachine.users.util;
 public class Wallet {
 
     private String brand = "Generic";
-    private float storedCredit = 0.5f; // using f after a decimal value treats it the as a float(rather than a double)
+    private float credit = 0.5f; // using f after a decimal value treats it the as a float(rather than a double)
 
     public Wallet(){}
 
     public Wallet(float startCredit){
         this.brand = "Generic";
-        this.storedCredit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
+        this.credit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
     }
 
     public Wallet(String brandName, float startCredit){
         this.brand = brandName;
-        this.storedCredit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
+        this.credit = startCredit; // using f after a decimal value treats it the as a float(rather than a double)
     }
 
 	//==================
@@ -22,18 +22,18 @@ public class Wallet {
 	//==================
 
     public void addCredit(float credit){
-        this.storedCredit += credit;
+        this.credit += credit;
     }
     
-    public float getCredit(float retrieve) {
-        if(retrieve > this.storedCredit){
+    public float takeCredit(float retrieve) {
+        if(retrieve > this.credit){
             //TODO replace 'Sys.out's with Log4j
             System.out.println("Warning: request exceeds value in wallet!");
             System.out.println("Request: " + retrieve + ",\tstored value: " + retrieve);
 
             return 0;
         }else {
-        	this.storedCredit -= retrieve;
+        	this.credit -= retrieve;
         	
             return retrieve;
         }
@@ -43,11 +43,11 @@ public class Wallet {
     //===  'get'ors
     //===============================
 
-    public float getAllCredit(){
-        return this.storedCredit;
+    public float getCredit(){
+        return this.credit;
     }
 
-    public String getBrand(String band) {
+    public String getBrand() {
         return this.brand;
     }
 
@@ -55,7 +55,7 @@ public class Wallet {
     //===  'set'ors
     //===============================
     public void setCredit(float credit){
-        this.storedCredit = credit;
+        this.credit = credit;
     }
 
     public void setBrand(String brand){
